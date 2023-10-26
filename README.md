@@ -31,6 +31,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ![image](https://github.com/rsa3698/Angular-Reactive-Forms/assets/102802999/2901bf36-fffc-4fe4-98b5-18f2ab358d0b)
 ![image](https://github.com/rsa3698/Angular-Reactive-Forms/assets/102802999/2e70e154-fdfd-4858-a5ac-8fb2ad896e1f)
 ![image](https://github.com/rsa3698/Angular-Reactive-Forms/assets/102802999/38dba859-3529-4228-a504-aaf1ef9cef56)
+![image](https://github.com/rsa3698/Angular-Reactive-Forms/assets/102802999/69a53536-b44b-44a3-84f7-9193b26dd56e)
 
 
 
