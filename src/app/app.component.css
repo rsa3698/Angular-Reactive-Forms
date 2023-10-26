@@ -201,3 +201,7 @@ input.ng-pending{
 .container.PENDING{
   border: orange 3px solid;
 }
+
+input .ng-touched .ng-invalid{
+  border: red 2px solid;
+}
