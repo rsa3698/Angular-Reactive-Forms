@@ -10,6 +10,8 @@ import { CustomValidators } from './Validators/noSpaceAllowed.Validator';
 export class AppComponent implements OnInit{
   title = 'Reactive-form';
   reactiveForm :FormGroup; //step2
+  formStatus: string = '';
+  formdata: any = {};
 
   ngOnInit(){
 
@@ -41,10 +43,30 @@ export class AppComponent implements OnInit{
       ])
       
     })
+
+    //  this.reactiveForm.get('firstname').valueChanges.subscribe((value) => {
+    //   console.log(value);
+    // })
+
+    // this.reactiveForm.valueChanges.subscribe((data)=>{
+    //   console.log(data);
+    // })
+
+    //   this.reactiveForm.get('username').statusChanges.subscribe((status) => {
+    //   console.log(status);
+    // })
+
+    this.reactiveForm.statusChanges.subscribe((status) => {
+      console.log(status)
+      this.formStatus = status;
+    });
   }
 
   onFormSubmitted(){
-    console.log(this.reactiveForm)
+    console.log(this.reactiveForm.value)
+    this.formdata = this.reactiveForm.value;
+    //this.reactiveForm.reset();
+
   }
 
   AddSkills(){
@@ -70,4 +92,58 @@ export class AppComponent implements OnInit{
   DeleteExperience(index : number){
     (<FormArray>this.reactiveForm.get('experience')).removeAt(index);
   }
+  generateUserName(){
+      let username = '';
+      const fName: string= this.reactiveForm.get('firstname').value;
+      const lName: string= this.reactiveForm.get('lastname').value;
+      const dob: string= this.reactiveForm.get('dob').value;
+  
+      if(fName.length >= 3){
+        username += fName.slice(0, 3);
+      }
+      else {
+        username += fName;
+      }
+  
+      if(lName.length >= 3){
+        username += lName.slice(0, 3);
+      }
+      else {
+        username += lName;
+      }
+  
+      let datetime = new Date(dob);
+      username += datetime.getFullYear();
+      console.log(username);
+
+      // use to update multiple fields
+      // this.reactiveForm.setValue({
+      //   firstname: this.reactiveForm.get('firstname').value,
+      //   lastname: this.reactiveForm.get('lastname').value,
+      //   email: this.reactiveForm.get('email').value,
+      //   username: username,
+      //   dob: this.reactiveForm.get('dob').value,
+      //   gender: this.reactiveForm.get('gender').value,
+      //   address: {
+      //     street: this.reactiveForm.get('address.street').value,
+      //     country: this.reactiveForm.get('address.country').value,
+      //     city: this.reactiveForm.get('address.city').value,
+      //     region: this.reactiveForm.get('address.region').value,
+      //     postal: this.reactiveForm.get('address.postal').value
+      //   },
+      //   skills: this.reactiveForm.get('skills').value,
+      //   experience: this.reactiveForm.get('experience').value
+      // })
+
+      // used to update single field
+      // this.reactiveForm.get('username').setValue(username);
+
+      // best practive easy to update both single and multiple field
+      this.reactiveForm.patchValue({
+        username: username,
+        address: {
+          city: 'New Delhi'
+        }
+      })
+    }
 } 
