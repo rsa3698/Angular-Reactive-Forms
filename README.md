@@ -34,5 +34,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ![image](https://github.com/rsa3698/Angular-Reactive-Forms/assets/102802999/69a53536-b44b-44a3-84f7-9193b26dd56e)
 
 
+1. What is a reactive form in Angular and how to create it?
+2. How to perform validation on a reactive form and creating custom validators?
+3. How to group form controls together using FormGroup and FormArray?
+4. How to add FormControl and FormGroup dynamically to a form?
+5. Setting the value for a form control in reactive form using setValue & patchValue?
+6. Reading form data and re-setting a reactive form and many more things.
 
 
